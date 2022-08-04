@@ -100,74 +100,158 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
+{{-- gikan sa data --}}
+     <div class="row">
+        <div class="col-12">
+          <div class="card mx-3">
+            <div  class= "card-header " >
+              <h3 class="card-title">Leads</h3>
             </div>
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
 
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
+
+
+
+
+
+
+
+
+            <!-- ./card-header -->
+            <div  class="card-body" >
+              <table    class="table table-bordered table-hover ">
+                   {{-- search --}}
+
+               <div>
+                <div class="mx-auto pull-right">
+                    <div class="d-flex">
+                        <form action="{{ route('starter') }}" method="GET" role="search">
+                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                            <P class="mr-2 text-center pt-2">Filter:</P>
+
+                                <input type="checkbox" name="companyName" value=1 class="btn-check" id="btncheck1" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="btncheck1">Company Name</label>
+
+                                <input type="checkbox" name="companyEmail" value=1  class="btn-check" id="btncheck2" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="btncheck2">Company Email</label>
+
+                                <input type="checkbox" name="companyPhone" value=1 class="btn-check" id="btncheck3" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="btncheck3">Company Phone</label>
+                              </div>
+
+                            <div class="input-group flex-row-reverse ">
+                                <span class="input-group-btn mr-2  mb-1">
+                                    <button class="btn btn-secondary " type="submit"  title="Search projects">
+                                        <span class="fas fa-search"></span>
+                                    </button>
+                                </span>
+                                <input type="text" class="mr-2 pl-2" name="term" placeholder="Company Name" id="term" style="width:150px; height:30px; border: 1px solid gray;">
+                                <a href="{{ route('starter') }}" class="">
+                                    <span class="input-group-btn mr-2">
+                                        <button class="btn btn-danger" type="button" title="Refresh page">
+                                            <span class="fas fa-sync-alt"></span>
+                                        </button>
+                                    </span>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+                        {{-- end search --}}
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Company Name</th>
+                    <th>Company Email</th>
+                    <th>Company Phone</th>
+                  </tr>
+
+                  </div>
+                </thead>
+                <tbody>
+                    @foreach ($leads as $lead)
+
+                    @if ($lead->active == 1)
+
+                  <tr data-widget="expandable-table" aria-expanded="false">
+                    <td>{{ $lead->id }}</td>
+                    <td>{{ $lead->company }}</td>
+                    <td>{{ $lead->companyEmail }}</td>
+                    <td>{{ $lead->companyPhone }}</td>
+                  </tr>
+                  <tr class="expandable-body ">
+                    <td colspan="5">
+                      <p>
+                        <strong>Name:</strong>  {{ $lead->name }}
+                         <br>
+                        <strong>First Name:</strong>  {{$lead->first }}
+                         <br>
+                        <strong>Last Name:</strong>  {{ $lead->last }}
+                         <br>
+                        <strong>Email:</strong>  {{ $lead->email }}
+                        <br>
+                        <strong>Phone #1:</strong>  {{ $lead->phone1 }}
+                         <br>
+                        <strong>Phone #2:</strong>  {{ $lead->phone2 }}
+                         <br>
+                        <strong>Street:</strong>  {{ $lead->street }}
+                        <br>
+                        <strong>City:</strong>  {{ $lead->city }}
+                        <br>
+                        <strong>Address:</strong>  {{ $lead->address }}
+                        <br>
+                        <strong>State:</strong>  {{ $lead->state }}
+                        <br>
+                        <strong>Zip Code:</strong>  {{ $lead->zip }}
+                        <br>
+                        <strong>Company? :</strong>  @if ($lead->isCompany == 1)
+                            Yes
+                        @else
+                            Not a Company!
+
+                        @endif
+                        <br>
+                        <strong>Position:</strong>  {{ $lead->position }}
+                        <br>
+                        <strong>Website:</strong>  {{ $lead->website }}
+                        <br>
+                        <strong>Industry:</strong>  {{ $lead->industry }}
+                        <br>
+                        <strong>Income:</strong>  {{ $lead->income }}
+                        <br>
+                        <strong>Notes:</strong>  {{ $lead->notes }}
+                        <br>
+                        <strong>Source:</strong>  {{ $lead->source }}
+                        <br>
+
+                      </p>
+                    </td>
+                  </tr>
+                  @endif
+                  @endforeach
+
+                </tbody>
+              </table>
+              {{ $leads->links() }}
+            </div>
+            <!-- /.card-body -->
           </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-md-6 -->
+          <!-- /.card -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+      </div>
+
+{{-- ending sa gikan sa data --}}
+
+
+
+
+
+
+
+
+
+
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

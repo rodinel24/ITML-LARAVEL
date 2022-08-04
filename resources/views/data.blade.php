@@ -57,54 +57,131 @@
 
         </div>
            {{-- form --}}
-        <form method="POST" action="{{ route('store') }}">
+        <form method="POST" action=" {{ route('store') }} ">
             @csrf
                 <div class="modal-body modalBody">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" name="name" aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1" >
+                            Full Name</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autofocus
+                        name="name" aria-describedby="emailHelp">
+
+                    @error('name')
+                         <span class="invalid-feedback" role="alert">
+                             <strong>{{ $message }}</strong>
+                         </span>
+                     @enderror
+
                         </div>
+
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">First Name</label>
-                        <input type="text" class="form-control" name="first" aria-describedby="emailHelp">
+                        <input type="text" class="form-control @error('first') is-invalid @enderror" name="first" value="{{ old('first') }}"  autofocus
+                        name="first" aria-describedby="emailHelp">
+
+                        @error('first')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" name="last" aria-describedby="emailHelp">
+                            <input type="text" class="form-control @error('last') is-invalid @enderror" name="last" value="{{ old('last') }}"  autofocus
+                            name="last" aria-describedby="emailHelp">
+
+                            @error('last')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                                <input type="text" class="form-control" name="email" aria-describedby="emailHelp">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autofocus
+                                 aria-describedby="emailHelp">
+
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Phone 1</label>
-                                    <input type="text" class="form-control" name="phone1" aria-describedby="emailHelp">
+                                    <input type="text" class="form-control @error('phone1') is-invalid @enderror" name="phone1" value="{{ old('phone1') }}" required autocomplete="phone1" autofocus
+                                    aria-describedby="emailHelp">
+
+                                   @error('phone1')
+                                   <span class="invalid-feedback" role="alert">
+                                       <strong>{{ $message }}</strong>
+
+
+                                   </span>
+                               @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Phone 2</label>
-                                        <input type="text" class="form-control" name="phone2" aria-describedby="emailHelp">
-                                        </div>
+                                        <input type="text" class="form-control @error('phone2') is-invalid @enderror" name="phone2" value="{{ old('phone2') }}" required autocomplete="phone2" autofocus
+                                        aria-describedby="emailHelp">
+
+                                       @error('phone2')
+                                       <span class="invalid-feedback" role="alert">
+                                           <strong>{{ $message }}</strong>
+                                       </span>
+                                   @enderror</div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Street</label>
-                                            <input type="text" class="form-control" name="street" aria-describedby="emailHelp">
-                                            </div>
+                                            <input type="text" class="form-control @error('street') is-invalid @enderror" name="street" value="{{ old('street') }}"  autofocus
+                                            aria-describedby="emailHelp">
+
+                                           @error('street')
+                                           <span class="invalid-feedback" role="alert">
+                                               <strong>{{ $message }}</strong>
+                                           </span>
+                                       @enderror</div>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label">City</label>
-                                                <input type="text" class="form-control" name="city" aria-describedby="emailHelp">
-                                                </div>
+                                                <input type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}"  autofocus
+                                                aria-describedby="emailHelp">
+
+                                               @error('city')
+                                               <span class="invalid-feedback" role="alert">
+                                                   <strong>{{ $message }}</strong>
+                                               </span>
+                                           @enderror</div>
                                                 <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Address</label>
-                                                    <input type="text" class="form-control" name="address" aria-describedby="emailHelp">
-                                                    </div>
+                                                    <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}"  autofocus
+                                                    aria-describedby="emailHelp">
+
+                                                   @error('address')
+                                                   <span class="invalid-feedback" role="alert">
+                                                       <strong>{{ $message }}</strong>
+                                                   </span>
+                                               @enderror</div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">State</label>
-                                                        <input type="text" class="form-control" name="state" aria-describedby="emailHelp">
-                                                        </div>
+                                                        <input type="text" class="form-control @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}"  autofocus
+                                                        aria-describedby="emailHelp">
+
+                                                       @error('state')
+                                                       <span class="invalid-feedback" role="alert">
+                                                           <strong>{{ $message }}</strong>
+                                                       </span>
+                                                   @enderror</div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Zip</label>
-                                                            <input type="text" class="form-control" name="zip" aria-describedby="emailHelp">
-                                                            </div>
+                                                            <input type="text" class="form-control @error('zip') is-invalid @enderror" name="zip" value="{{ old('zip') }}"  autofocus
+                                                            aria-describedby="emailHelp">
+
+                                                           @error('zip')
+                                                           <span class="invalid-feedback" role="alert">
+                                                               <strong>{{ $message }}</strong>
+                                                           </span>
+                                                       @enderror</div>
                                                             <div class="mb-3">
                                                                 <label for="exampleInputEmail1" class="form-label">isCompany</label>
                                                                 <br>
@@ -122,58 +199,107 @@
                                                             </div>
                                                                 <div class="mb-3">
                                                                     <label for="exampleInputEmail1" class="form-label">Company Name</label>
-                                                                    <input type="text" class="form-control" name="company" aria-describedby="emailHelp">
-                                                                    </div>
+                                                                    <input type="text" class="form-control @error('companyName') is-invalid @enderror" name="company" value="{{ old('company') }}"  autofocus
+                                                                    aria-describedby="emailHelp">
+
+                                                                   @error('company')
+                                                                   <span class="invalid-feedback" role="alert">
+                                                                       <strong>{{ $message }}</strong>
+                                                                   </span>
+                                                               @enderror</div>
                                                                     <div class="mb-3">
                                                                         <label for="exampleInputEmail1" class="form-label">Company Address</label>
-                                                                        <input type="text" class="form-control" name="companyAddress" aria-describedby="emailHelp">
-                                                                        </div>
+                                                                        <input type="text" class="form-control @error('companyAddress') is-invalid @enderror" name="companyAddress" value="{{ old('companyAddress') }}"  autofocus
+                                                                        aria-describedby="emailHelp">
+
+                                                                       @error('companyAddress')
+                                                                       <span class="invalid-feedback" role="alert">
+                                                                           <strong>{{ $message }}</strong>
+                                                                       </span>
+                                                                   @enderror</div>
 
                                                                         <div class="mb-3">
                                                                             <label for="exampleInputEmail1" class="form-label">Company Email</label>
-                                                                            <input type="email" class="form-control" name="companyEmail" aria-describedby="emailHelp">
-                                                                        </div>
+                                                                            <input type="email" class="form-control @error('companyEmail') is-invalid @enderror" name="companyEmail" value="{{ old('companyEmail') }}"  autofocus
+                                                                            aria-describedby="emailHelp">
+
+                                                                           @error('companyEmail')
+                                                                           <span class="invalid-feedback" role="alert">
+                                                                               <strong>{{ $message }}</strong>
+                                                                           </span>
+                                                                       @enderror</div>
                                                                         <div class="mb-3">
                                                                             <label for="exampleInputEmail1" class="form-label">Company Number</label>
-                                                                            <input type="text" class="form-control" name="companyPhone" aria-describedby="emailHelp">
-                                                                        </div>
+                                                                            <input type="text" class="form-control @error('companyNumber') is-invalid @enderror" name="companyNumber" value="{{ old('companyNumber') }}" autofocus
+                                                                            aria-describedby="emailHelp">
+
+                                                                           @error('companyNumber')
+                                                                           <span class="invalid-feedback" role="alert">
+                                                                               <strong>{{ $message }}</strong>
+                                                                           </span>
+                                                                       @enderror</div>
 
                                                             <div class="mb-3">
                                                                 <label for="exampleInputEmail1" class="form-label">Position</label>
-                                                                <input type="text" class="form-control" name="position" aria-describedby="emailHelp">
-                                                                </div>
+                                                                <input type="text" class="form-control @error('position') is-invalid @enderror" name="position" value="{{ old('position') }}"  autofocus
+                                                                aria-describedby="emailHelp">
+
+                                                               @error('position')
+                                                               <span class="invalid-feedback" role="alert">
+                                                                   <strong>{{ $message }}</strong>
+                                                               </span>
+                                                           @enderror</div>
                                                                 <div class="mb-3">
                                                                     <label for="exampleInputEmail1" class="form-label">Website</label>
-                                                                    <input type="text" class="form-control" name="website" aria-describedby="emailHelp">
-                                                                    </div>
+                                                                    <input type="text" class="form-control @error('website') is-invalid @enderror" name="website" value="{{ old('website') }}"autofocus
+                                                                    aria-describedby="emailHelp">
+
+                                                                   @error('website')
+                                                                   <span class="invalid-feedback" role="alert">
+                                                                       <strong>{{ $message }}</strong>
+                                                                   </span>
+                                                               @enderror</div>
                                                                     <div class="mb-3">
                                                                         <label for="exampleInputEmail1" class="form-label">Industry</label>
-                                                                        <input type="text" class="form-control" name="industry" aria-describedby="emailHelp">
-                                                                        </div>
+                                                                        <input type="text" class="form-control @error('industry') is-invalid @enderror" name="industry" value="{{ old('industry') }}" autofocus
+                                                                        aria-describedby="emailHelp">
+
+                                                                       @error('industry')
+                                                                       <span class="invalid-feedback" role="alert">
+                                                                           <strong>{{ $message }}</strong>
+                                                                       </span>
+                                                                   @enderror</div>
                                                                         <div class="mb-3">
                                                                             <label for="exampleInputEmail1" class="form-label">Income</label>
-                                                                            <input type="text" class="form-control" name="income" aria-describedby="emailHelp">
-                                                                            </div>
+                                                                            <input type="text" class="form-control @error('income') is-invalid @enderror" name="income" value="{{ old('income') }}" autofocus
+                                                                            aria-describedby="emailHelp">
+
+                                                                           @error('income')
+                                                                           <span class="invalid-feedback" role="alert">
+                                                                               <strong>{{ $message }}</strong>
+                                                                           </span>
+                                                                       @enderror</div>
                                                                             <div class="mb-3">
                                                                                 <label for="exampleInputEmail1" class="form-label">Notes</label>
-                                                                                <input type="text" class="form-control" name="notes" aria-describedby="emailHelp">
-                                                                                </div>
+                                                                                <input type="text" class="form-control @error('notes') is-invalid @enderror" name="notes" value="{{ old('notes') }}"  autofocus
+                                                                                aria-describedby="emailHelp">
+
+                                                                               @error('notes')
+                                                                               <span class="invalid-feedback" role="alert">
+                                                                                   <strong>{{ $message }}</strong>
+                                                                               </span>
+                                                                           @enderror</div>
                                                                                 <div class="mb-3">
                                                                                     <label for="exampleInputEmail1" class="form-label">Source</label>
-                                                                                    <input type="text" class="form-control" name="source" aria-describedby="emailHelp">
-                                                                                    </div>
+                                                                                    <input type="text" class="form-control @error('source') is-invalid @enderror" name="source" value="{{ old('source') }}"  autofocus
+                                                                                    aria-describedby="emailHelp">
 
-
-
-
-
-
-
-
-
-
+                                                                                   @error('source')
+                                                                                   <span class="invalid-feedback" role="alert">
+                                                                                       <strong>{{ $message }}</strong>
+                                                                                   </span>
+                                                                               @enderror</div>
                 </div>
-
 
         <div class="modal-footer">
           {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
@@ -271,28 +397,28 @@
                   </div>
                 </thead>
                 <tbody>
-                    @foreach ($employees as $employee)
+                    @foreach ($leads as $lead)
 
-                    @if ($employee->active == 1)
+                    @if ($lead->active == 1)
 
 
 
                   <tr data-widget="expandable-table" aria-expanded="false">
-                    <td>{{ $employee->id }}</td>
-                    <td>{{ $employee->company }}</td>
-                    <td>{{ $employee->companyEmail }}</td>
-                    <td>{{ $employee->companyPhone }}</td>
+                    <td>{{ $lead->id }}</td>
+                    <td>{{ $lead->company }}</td>
+                    <td>{{ $lead->companyEmail }}</td>
+                    <td>{{ $lead->companyPhone }}</td>
 
                     @if (Auth::user()->role == 1)
-                         <td class="d-flex justify-content-around"><a href="#editModal{{ $employee->id }}" data-bs-toggle="modal" ><i class="fa-solid fa-pencil" style="color:black;" > </i></a>
-                        <a href="#deleteModal{{ $employee->id }}" data-bs-toggle="modal" ><i class="fa-solid fa-trash-can" style="color:red;" ></i></a>
+                         <td class="d-flex justify-content-around"><a href="#editModal{{ $lead->id }}" data-bs-toggle="modal" ><i class="fa-solid fa-pencil" style="color:black;" > </i></a>
+                        <a href="#deleteModal{{ $lead->id }}" data-bs-toggle="modal" ><i class="fa-solid fa-trash-can" style="color:red;" ></i></a>
                                     </td>
                     @endif
 
             </div>
 
   <!--  Edit Modal -->
-  <div class="modal fade" id="editModal{{ $employee->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="editModal{{ $lead->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -303,105 +429,105 @@
         <form method="POST" action="{{ route('update') }}">
             @csrf
             @method('PUT')
-                <input type="hidden" name="id" value="{{ $employee->id }}">
+                <input type="hidden" name="id" value="{{ $lead->id }}">
                 <div class="modal-body editmodalBody">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" name="update_name" aria-describedby="emailHelp" value="{{ $employee->name }}">
+                        <input type="text" class="form-control" name="update_name" aria-describedby="emailHelp" value="{{ $lead->name }}">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">First Name</label>
-                        <input type="text" class="form-control" name="update_first" aria-describedby="emailHelp" value="{{ $employee->first }}">
+                        <input type="text" class="form-control" name="update_first" aria-describedby="emailHelp" value="{{ $lead->first }}">
                     </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" name="update_last" aria-describedby="emailHelp" value="{{ $employee->last }}">
+                            <input type="text" class="form-control" name="update_last" aria-describedby="emailHelp" value="{{ $lead->last }}">
                         </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                                <input type="text" class="form-control" name="update_email" aria-describedby="emailHelp" value="{{ $employee->email }}">
+                                <input type="text" class="form-control" name="update_email" aria-describedby="emailHelp" value="{{ $lead->email }}">
                             </div>
 
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Phone 1</label>
-                                    <input type="text" class="form-control" name="update_phone1" aria-describedby="emailHelp" value="{{ $employee->phone1 }}">
+                                    <input type="text" class="form-control" name="update_phone1" aria-describedby="emailHelp" value="{{ $lead->phone1 }}">
                                 </div>
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Phone 2</label>
-                                        <input type="text" class="form-control" name="update_phone2" aria-describedby="emailHelp" value="{{ $employee->phone2 }}">
+                                        <input type="text" class="form-control" name="update_phone2" aria-describedby="emailHelp" value="{{ $lead->phone2 }}">
                                     </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Street</label>
-                                            <input type="text" class="form-control" name="update_street" aria-describedby="emailHelp" value="{{ $employee->street }}">
+                                            <input type="text" class="form-control" name="update_street" aria-describedby="emailHelp" value="{{ $lead->street }}">
                                         </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label">City</label>
-                                                <input type="text" class="form-control" name="update_city" aria-describedby="emailHelp" value="{{ $employee->city }}">
+                                                <input type="text" class="form-control" name="update_city" aria-describedby="emailHelp" value="{{ $lead->city }}">
                                             </div>
                                                 <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Address</label>
-                                                    <input type="text" class="form-control" name="update_address" aria-describedby="emailHelp" value="{{ $employee->address }}">
+                                                    <input type="text" class="form-control" name="update_address" aria-describedby="emailHelp" value="{{ $lead->address }}">
                                                 </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputEmail1" class="form-label">State</label>
-                                                        <input type="text" class="form-control" name="update_state" aria-describedby="emailHelp" value="{{ $employee->state }}">
+                                                        <input type="text" class="form-control" name="update_state" aria-describedby="emailHelp" value="{{ $lead->state }}">
                                                     </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Zip</label>
-                                                            <input type="text" class="form-control" name="update_zip" aria-describedby="emailHelp" value="{{ $employee->zip }}">
+                                                            <input type="text" class="form-control" name="update_zip" aria-describedby="emailHelp" value="{{ $lead->zip }}">
                                                         </div>
 
                                                             <div class="mb-3">
                                                                 <label for="exampleInputEmail1" class="form-label">isCompany</label>
                                                                 <br>
                                                                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                                                    <input type="radio" class="btn-check" name="update_isCompany" id="btnradio1" value=1 autocomplete="off" @if ($employee->isCompany == 1)  checked @endif  >
+                                                                    <input type="radio" class="btn-check" name="update_isCompany" id="btnradio1" value=1 autocomplete="off" @if ($lead->isCompany == 1)  checked @endif  >
                                                                     <label class="btn btn-outline-secondary" for="btnradio1">Yes</label>
-                                                                    <input type="radio" class="btn-check" name="update_isCompany" id="btnradio2" value=0 autocomplete="off" @if ($employee->isCompany == 0)  checked @endif>
+                                                                    <input type="radio" class="btn-check" name="update_isCompany" id="btnradio2" value=0 autocomplete="off" @if ($lead->isCompany == 0)  checked @endif>
                                                                     <label class="btn btn-outline-secondary" for="btnradio2">No</label>
                                                                 </div>
                                                             </div>
                                                                 <div class="mb-3">
                                                                     <label for="exampleInputEmail1" class="form-label">Company Name</label>
-                                                                    <input type="text" class="form-control" name="update_company" aria-describedby="emailHelp" value="{{ $employee->company }}">
+                                                                    <input type="text" class="form-control" name="update_company" aria-describedby="emailHelp" value="{{ $lead->company }}">
                                                                 </div>
                                                                     <div class="mb-3">
                                                                         <label for="exampleInputEmail1" class="form-label">Company Address</label>
-                                                                        <input type="text" class="form-control" name="update_companyAddress" aria-describedby="emailHelp" value="{{ $employee->companyAddress }}">
+                                                                        <input type="text" class="form-control" name="update_companyAddress" aria-describedby="emailHelp" value="{{ $lead->companyAddress }}">
                                                                     </div>
 
                                                                         <div class="mb-3">
                                                                             <label for="exampleInputEmail1" class="form-label">Company Email</label>
-                                                                            <input type="email" class="form-control" name="update_companyEmail" aria-describedby="emailHelp" value="{{ $employee->companyEmail }}">
+                                                                            <input type="email" class="form-control" name="update_companyEmail" aria-describedby="emailHelp" value="{{ $lead->companyEmail }}">
                                                                         </div>
                                                                         <div class="mb-3">
                                                                             <label for="exampleInputEmail1" class="form-label">Company Number</label>
-                                                                            <input type="text" class="form-control" name="update_companyPhone" aria-describedby="emailHelp" value="{{ $employee->companyPhone }}">
+                                                                            <input type="text" class="form-control" name="update_companyPhone" aria-describedby="emailHelp" value="{{ $lead->companyPhone }}">
                                                                         </div>
 
                                                             <div class="mb-3">
                                                                 <label for="exampleInputEmail1" class="form-label">Position</label>
-                                                                <input type="text" class="form-control" name="update_position" aria-describedby="emailHelp" value="{{ $employee->position }}">
+                                                                <input type="text" class="form-control" name="update_position" aria-describedby="emailHelp" value="{{ $lead->position }}">
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label for="exampleInputEmail1" class="form-label">Website</label>
-                                                                    <input type="text" class="form-control" name="update_website" aria-describedby="emailHelp" value="{{ $employee->website }}">
+                                                                    <input type="text" class="form-control" name="update_website" aria-describedby="emailHelp" value="{{ $lead->website }}">
                                                                     </div>
                                                                     <div class="mb-3">
                                                                         <label for="exampleInputEmail1" class="form-label">Industry</label>
-                                                                        <input type="text" class="form-control" name="update_industry" aria-describedby="emailHelp" value="{{ $employee->industry }}">
+                                                                        <input type="text" class="form-control" name="update_industry" aria-describedby="emailHelp" value="{{ $lead->industry }}">
                                                                         </div>
                                                                         <div class="mb-3">
                                                                             <label for="exampleInputEmail1" class="form-label">Income</label>
-                                                                            <input type="text" class="form-control" name="update_income" aria-describedby="emailHelp" value="{{ $employee->income }}">
+                                                                            <input type="text" class="form-control" name="update_income" aria-describedby="emailHelp" value="{{ $lead->income }}">
                                                                             </div>
                                                                             <div class="mb-3">
                                                                                 <label for="exampleInputEmail1" class="form-label">Notes</label>
-                                                                                <input type="text" class="form-control" name="update_notes" aria-describedby="emailHelp" value="{{ $employee->notes }}">
+                                                                                <input type="text" class="form-control" name="update_notes" aria-describedby="emailHelp" value="{{ $lead->notes }}">
                                                                                 </div>
                                                                                 <div class="mb-3">
                                                                                     <label for="exampleInputEmail1" class="form-label">Source</label>
-                                                                                    <input type="text" class="form-control" name="update_source" aria-describedby="emailHelp" value="{{ $employee->source }}">
+                                                                                    <input type="text" class="form-control" name="update_source" aria-describedby="emailHelp" value="{{ $lead->source }}">
                                                                                     </div>
 
                 </div>
@@ -418,7 +544,7 @@
             {{-- end editmodal --}}
 
              <!-- Delete Modal -->
-  <div class="modal fade" id="deleteModal{{ $employee->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="deleteModal{{ $lead->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog ">
       <div class="modal-content">
         <div class="modal-header">
@@ -429,7 +555,7 @@
         <form method="POST" action="{{ route('remove') }}">
             @csrf
             @method('PUT')
-                <input type="hidden" name="id" value="{{ $employee->id }}">
+                <input type="hidden" name="id" value="{{ $lead->id }}">
                 <input type="hidden" name="active" value=0>
 
                 <div class="modal-body">
@@ -451,46 +577,46 @@
                   <tr class="expandable-body ">
                     <td colspan="5">
                       <p>
-                        <strong>Name:</strong>  {{ $employee->name }}
+                        <strong>Name:</strong>  {{ $lead->name }}
                          <br>
-                        <strong>First Name:</strong>  {{ $employee->first }}
+                        <strong>First Name:</strong>  {{ $lead->first }}
                          <br>
-                        <strong>Last Name:</strong>  {{ $employee->last }}
+                        <strong>Last Name:</strong>  {{ $lead->last }}
                          <br>
-                        <strong>Email:</strong>  {{ $employee->email }}
+                        <strong>Email:</strong>  {{ $lead->email }}
                         <br>
-                        <strong>Phone #1:</strong>  {{ $employee->phone1 }}
+                        <strong>Phone #1:</strong>  {{ $lead->phone1 }}
                          <br>
-                        <strong>Phone #2:</strong>  {{ $employee->phone2 }}
+                        <strong>Phone #2:</strong>  {{ $lead->phone2 }}
                          <br>
-                        <strong>Street:</strong>  {{ $employee->street }}
+                        <strong>Street:</strong>  {{ $lead->street }}
                         <br>
-                        <strong>City:</strong>  {{ $employee->city }}
+                        <strong>City:</strong>  {{ $lead->city }}
                         <br>
-                        <strong>Address:</strong>  {{ $employee->address }}
+                        <strong>Address:</strong>  {{ $lead->address }}
                         <br>
-                        <strong>State:</strong>  {{ $employee->state }}
+                        <strong>State:</strong>  {{ $lead->state }}
                         <br>
-                        <strong>Zip Code:</strong>  {{ $employee->zip }}
+                        <strong>Zip Code:</strong>  {{ $lead->zip }}
                         <br>
-                        <strong>Company? :</strong>  @if ($employee->isCompany == 1)
+                        <strong>Company? :</strong>  @if ($lead->isCompany == 1)
                             Yes
                         @else
                             Not a Company!
 
                         @endif
                         <br>
-                        <strong>Position:</strong>  {{ $employee->position }}
+                        <strong>Position:</strong>  {{ $lead->position }}
                         <br>
-                        <strong>Website:</strong>  {{ $employee->website }}
+                        <strong>Website:</strong>  {{ $lead->website }}
                         <br>
-                        <strong>Industry:</strong>  {{ $employee->industry }}
+                        <strong>Industry:</strong>  {{ $lead->industry }}
                         <br>
-                        <strong>Income:</strong>  {{ $employee->income }}
+                        <strong>Income:</strong>  {{ $lead->income }}
                         <br>
-                        <strong>Notes:</strong>  {{ $employee->notes }}
+                        <strong>Notes:</strong>  {{ $lead->notes }}
                         <br>
-                        <strong>Source:</strong>  {{ $employee->source }}
+                        <strong>Source:</strong>  {{ $lead->source }}
                         <br>
 
                       </p>
@@ -501,7 +627,7 @@
 
                 </tbody>
               </table>
-              {{ $employees->links() }}
+              {{ $leads->links() }}
             </div>
             <!-- /.card-body -->
           </div>

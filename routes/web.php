@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\StarterController;
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\LeadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +17,9 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 
@@ -33,21 +33,21 @@ Route::middleware('auth')->group(function()
     //     return view('starter');
     // })->name('starter');
 
-    Route::get('/starter' , [StarterController::class , 'index'])->name('starter');
+    Route::get('/' , [StarterController::class , 'index'])->name('starter');
 
         //data
-    Route::get('/data',[EmployeeController::class , 'index'])->name('data');
+    Route::get('/data',[LeadController::class , 'index'])->name('data');
         //modal
-    Route::get('/generate',[EmployeeController::class , 'index'])->name('generate');
-    Route::post('/generate/store',[EmployeeController::class , 'store'])->name('store');
+    Route::get('/generate',[LeadController::class , 'index'])->name('generate');
+    Route::post('/generate/store',[LeadController::class , 'store'])->name('store');
 
 
-    Route::put('/generate/update',[EmployeeController::class , 'update'])->name('update');
-    Route::put('/generate/remove',[EmployeeController::class , 'remove'])->name('remove');
+    Route::put('/generate/update',[LeadController::class , 'update'])->name('update');
+    Route::put('/generate/remove',[LeadController::class , 'remove'])->name('remove');
 
-    Route::get('/generate/search',[EmployeeController::class , 'search'])->name('search');
+    Route::get('/generate/search',[LeadController::class , 'search'])->name('search');
 
-    // Route::get('/generate/inactive',[EmployeeController::class , 'countInactiveEmployee'])->name('inactive');
+    // Route::get('/generate/inactive',[LeadController::class , 'countInactiveEmployee'])->name('inactive');
 
 
 

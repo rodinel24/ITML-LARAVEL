@@ -227,12 +227,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
             <ul class="nav nav-treeview">
+                @if (Auth::user()->role == 1)
               <li class="nav-item">
                 <a href="{{ route('data') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Generate Leads</p>
                 </a>
               </li>
+              @endif
 
 
 
